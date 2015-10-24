@@ -1,0 +1,45 @@
+<html>
+<head>
+    <style type="text/css">
+        .label {width:100px;text-align:right;float:left;padding-right:10px;font-weight:bold;}
+        .label1 {width:350px; text-align:right; padding-top:300px;padding-bottom:30px; font-weight:bold;  }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui.min.js"></script> -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script> 
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> 
+
+    <script>
+    $(function() {
+        $("#register-form").validate({
+            rules: { firstname: "required", lastname: "required" },
+            messages: { firstname: "Need First Name", lastname: "Need Last Name" },
+            showErrors: function(errorMap, errorList) {
+                        $("#diverror").dialog({ modal: true });
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <form method="post" id="register-form">
+        <div class="label">First Name</div><input type="text" id="firstname" name="firstname" /><br />
+        <div class="label">Last Name</div><input type="text" id="lastname" name="lastname" /><br />
+
+        <div class="label1">Making page to scroll. Scroll down to submit</div>
+        <div class="label1">Making page to scroll. Scroll down to submit</div>
+        <div class="label1">Making page to scroll. Scroll down to submit</div>
+
+        <div style="margin-left:140px;"><input type="submit" name="submit" value="Submit" /></div>
+  </form>
+    <div id="diverror" title="Basic dialog"><p>This is the default DIVERROR which is useful for displaying information.</p></div>
+</body>
+</html>
